@@ -38,7 +38,7 @@ namespace Platform.VirtualFileSystem
 			}
 		}
 
-		public bool ReadOnly => false;
+		public virtual bool ReadOnly => false;
 		public bool IsDefault { get; }
 
 		public FileSystemVariablesCollection Variables { get; }
@@ -104,7 +104,7 @@ namespace Platform.VirtualFileSystem
 			return new FileSystemOptions(this.NodeCacheType, this.NodeServiceProviderTypes, this.NodeResolutionFilterTypes, nodeOperationFileTypes, accessPermissionVerifierTypes, variables, false);
 		}
 
-		private FileSystemOptions(Type nodeCacheType, IList<Type> nodeServiceProviderTypes, IList<Type> nodeResolutionFilterTypes, IList<Type> nodeOperationFilterTypes, IList<Type> accessPermissionVerifierTypes, NameValueCollection variables, bool isDefault = false)
+		internal FileSystemOptions(Type nodeCacheType, IList<Type> nodeServiceProviderTypes, IList<Type> nodeResolutionFilterTypes, IList<Type> nodeOperationFilterTypes, IList<Type> accessPermissionVerifierTypes, NameValueCollection variables, bool isDefault = false)
 		{
 			this.IsDefault = IsDefault;
 			this.NodeCacheType = nodeCacheType;

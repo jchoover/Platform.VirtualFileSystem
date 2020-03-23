@@ -299,39 +299,46 @@ namespace Platform.VirtualFileSystem.Providers.Local
 					return;
 				}
 
-				/*
-				 * There is a race here between when the watcher sees the event and when it is processed
-				 * which may mean that a changed event meant for a dir goes to a file (or vice versa).
-				 * There's nothing we can do about it but since the Changed event is pretty opaque
-				 * (users will have to figure what has changed anyway) it doesn't matter too much.
-				 */
+        /*
+            * There is a race here between when the watcher sees the event and when it is processed
+            * which may mean that a changed event meant for a dir goes to a file (or vice versa).
+            * There's nothing we can do about it but since the Changed event is pretty opaque
+            * (users will have to figure what has changed anyway) it doesn't matter too much.
+            */
+        try
+        {
+            nodeType = GetNodeType(e.FullPath.Substring(((LocalNodeAddress)this.RootAddress).AbsoluteNativePath.Length - 1));
 
-				nodeType = GetNodeType(e.FullPath.Substring(((LocalNodeAddress) this.RootAddress).AbsoluteNativePath.Length - 1));
+            if (nodeType == NodeType.None)
+            {
+                OnActivityEvent(new FileSystemActivityEventArgs(FileSystemActivity.Changed, NodeType.File, e.Name,
+                                                                StringUriUtils.NormalizePath(
+                                                                    e.FullPath.Substring(
+                                                                    ((LocalNodeAddress)this.RootAddress).AbsoluteNativePath.Length -
+                                                                    1))));
 
-				if (nodeType == NodeType.None)
-				{
-					OnActivityEvent(new FileSystemActivityEventArgs(FileSystemActivity.Changed, NodeType.File, e.Name,
-					                                                StringUriUtils.NormalizePath(
-					                                                	e.FullPath.Substring(
-					                                                		((LocalNodeAddress) this.RootAddress).AbsoluteNativePath.Length -
-					                                                		1))));
+                OnActivityEvent(new FileSystemActivityEventArgs(FileSystemActivity.Changed, NodeType.Directory, e.Name,
+                                                                StringUriUtils.NormalizePath(
+                                                                    e.FullPath.Substring(
+                                                                    ((LocalNodeAddress)this.RootAddress).AbsoluteNativePath.Length -
+                                                                    1))));
 
-					OnActivityEvent(new FileSystemActivityEventArgs(FileSystemActivity.Changed, NodeType.Directory, e.Name,
-					                                                StringUriUtils.NormalizePath(
-					                                                	e.FullPath.Substring(
-					                                                		((LocalNodeAddress) this.RootAddress).AbsoluteNativePath.Length -
-					                                                		1))));
-
-					return;
-				}
-				else
-				{
-					OnActivityEvent(new FileSystemActivityEventArgs(FileSystemActivity.Changed, nodeType, e.Name,
-					                                                StringUriUtils.NormalizePath(
-					                                                	e.FullPath.Substring(
-					                                                		((LocalNodeAddress) this.RootAddress).AbsoluteNativePath.Length -
-					                                                		1))));
-				}
+                return;
+            }
+            else
+            {
+                OnActivityEvent(new FileSystemActivityEventArgs(FileSystemActivity.Changed, nodeType, e.Name,
+                                                                StringUriUtils.NormalizePath(
+                                                                    e.FullPath.Substring(
+                                                                    ((LocalNodeAddress)this.RootAddress).AbsoluteNativePath.Length -
+                                                                    1))));
+            }
+        }
+        catch (Exception ex)
+        {
+          Trace.WriteLine("FileSystemWatcher_Changed generated an error: " + ex.Message, "FileSystemWatcher");
+          Trace.WriteLine("FileSystemWatcher_Changed FullPath: " + e.FullPath + ", AbsoluteNativePath: " + ((LocalNodeAddress)this.RootAddress).AbsoluteNativePath, "FileSystemWatcher");
+        }
 			}
 		}
 

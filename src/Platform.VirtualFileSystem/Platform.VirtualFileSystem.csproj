@@ -12,8 +12,7 @@
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyName>Platform.VirtualFileSystem</AssemblyName>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>platform.snk</AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
@@ -95,6 +94,9 @@
     <Prefer32Bit>false</Prefer32Bit>
     <DebugType>full</DebugType>
     <LangVersion>6</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C5">
@@ -534,6 +536,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="FileSystemSecurityContext.cs" />
+    <Compile Include="ReadOnlyFileSystemOptions.cs" />
     <Compile Include="RegexBasedNodePredicateHelper.cs" />
     <Compile Include="RetryNodeOperationFilter.cs" />
     <Compile Include="ServiceType.cs">
@@ -560,6 +563,7 @@
     </None>
     <AppDesigner Include="Properties\" />
     <None Include="packages.config" />
+    <None Include="platform.snk" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
