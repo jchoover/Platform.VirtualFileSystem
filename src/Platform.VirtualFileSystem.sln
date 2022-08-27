@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform", "..\externals\platform\src\Platform\Platform.csproj", "{31199C34-A7F0-4D69-B2CF-E9CE05262618}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platform", "..\externals\platform\src\Platform\Platform.csproj", "{31199C34-A7F0-4D69-B2CF-E9CE05262618}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.Xml.Serialization", "..\externals\platform\src\Platform.Xml.Serialization\Platform.Xml.Serialization.csproj", "{CBB73076-7381-4FDD-907F-7097A8AB04E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platform.Xml.Serialization", "..\externals\platform\src\Platform.Xml.Serialization\Platform.Xml.Serialization.csproj", "{CBB73076-7381-4FDD-907F-7097A8AB04E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.Network.ExtensibleServer", "Platform.Network.ExtensibleServer\Platform.Network.ExtensibleServer.csproj", "{D8AF5266-0C91-4842-BE27-F3F3B38B0E01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.VirtualFileSystem", "Platform.VirtualFileSystem\Platform.VirtualFileSystem.csproj", "{1ED1B720-ECFE-4E10-959B-0C1E2E00C7E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platform.VirtualFileSystem", "Platform.VirtualFileSystem\Platform.VirtualFileSystem.csproj", "{1ED1B720-ECFE-4E10-959B-0C1E2E00C7E2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.VirtualFileSystem.DataFile", "Platform.VirtualFileSystem.DataFile\Platform.VirtualFileSystem.DataFile.csproj", "{22676D41-CD5C-4A36-B8C9-0D764974BC9A}"
 EndProject
@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.VirtualFileSystem.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.VirtualFileSystem.Multimedia", "Platform.VirtualFileSystem.Multimedia\Platform.VirtualFileSystem.Multimedia.csproj", "{F5F37D16-C043-4AA1-A003-0D3BB8FD94E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.VirtualFileSystem.Providers.Zip", "Platform.VirtualFileSystem.Providers.Zip\Platform.VirtualFileSystem.Providers.Zip.csproj", "{AB736832-3D20-4DDC-A226-3813EF1CE8ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Platform.VirtualFileSystem.Providers.Zip", "Platform.VirtualFileSystem.Providers.Zip\Platform.VirtualFileSystem.Providers.Zip.csproj", "{AB736832-3D20-4DDC-A226-3813EF1CE8ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.VirtualFileSystem.Tests", "..\tests\Platform.VirtualFileSystem.Tests\Platform.VirtualFileSystem.Tests.csproj", "{1528064F-4278-4800-A3B6-74BC00D58017}"
 EndProject
@@ -38,6 +38,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7CFBC1
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platform.VirtualFileSystem.Gfc", "Platform.VirtualFileSystem.Gfc\Platform.VirtualFileSystem.Gfc.csproj", "{BDF27E6F-1323-4BDE-A2AA-B9FD10D33BDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,8 +95,15 @@ Global
 		{1528064F-4278-4800-A3B6-74BC00D58017}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1528064F-4278-4800-A3B6-74BC00D58017}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1528064F-4278-4800-A3B6-74BC00D58017}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDF27E6F-1323-4BDE-A2AA-B9FD10D33BDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDF27E6F-1323-4BDE-A2AA-B9FD10D33BDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDF27E6F-1323-4BDE-A2AA-B9FD10D33BDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDF27E6F-1323-4BDE-A2AA-B9FD10D33BDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29346265-D7C3-49CA-9B35-14D20E5096F2}
 	EndGlobalSection
 EndGlobal
